@@ -1,7 +1,7 @@
 { "name" : "fake-queue"
 , "description" : "Simple in-memory queue"
 , "tags" : ["queue", "memory", "pubsub"]
-, "version" : "1.0.0"
+, "version" : "1.0.1"
 , "author" : "Pedro Teixeira <pedro.teixeira@gmail.com>"
 , "repository" :
   { "type" : "git"

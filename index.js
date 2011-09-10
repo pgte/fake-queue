@@ -22,10 +22,13 @@ function notify(type) {
   }
 }
 
-function push(type, jobData) {
+function push(type, jobData, callback) {
   if (! queues[type]) { queues[type] = []; }
   queues[type].push(jobData);
   notify(type);
+  if (callback) {
+    process.nextTick(callback);
+  }
 }
 
 function pop(type, callback) {
