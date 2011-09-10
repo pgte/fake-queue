@@ -1,4 +1,4 @@
-var queue  = require('./')
+var queue  = require('./')()
   , assert = require('assert');
 
 exports.push_then_pop = function(done) {

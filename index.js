@@ -37,7 +37,9 @@ function pop(type, callback) {
   notify(type);
 }
 
-module.exports = {
-    push: push
-  , pop: pop
+module.exports = function() {
+  return {
+      push: push
+    , pop: pop
+  };
 };

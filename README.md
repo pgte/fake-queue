@@ -13,7 +13,7 @@ Used initially for simulating a queueing system for testing banzai.
 
 ## Job producer:
 
-    var queue  = require('fake-queue')
+    var queue  = require('fake-queue')();
 
     var job = {
         to: 'pedro.teixeira@gmail.com'
@@ -26,10 +26,10 @@ Used initially for simulating a queueing system for testing banzai.
 
 ## Job consumer:
 
-    var queue = require('fake-queue);
+    var queue = require('fake-queue)();
 
     queue.pop('email', function(job, done) {
-      // actally send the email (not done here);
+      // actually send the email (not done here);
 
       // call done, with no error, or done(err) if there is an error
       done();
