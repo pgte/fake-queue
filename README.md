@@ -2,7 +2,7 @@
 
 In-memory queue for Node.js.
 
-Used initially for simulating a queueing system for testing banzai.
+Used initially for simulating a queueing system for testing [banzai].
 
 # Installation
 
@@ -34,3 +34,5 @@ Used initially for simulating a queueing system for testing banzai.
       // call done, with no error, or done(err) if there is an error
       done();
     });
+
+[banzai]: https://github.com/pgte/banzai
