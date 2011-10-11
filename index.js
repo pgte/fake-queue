@@ -6,11 +6,12 @@ function notify(type) {
     , queue = queues[type]
     , client
     , job;
-    
+  
   if (queue && clients) {
-    while (queue.length > 0 && clients.length > 0) {
-      client = clients.splice(0, 1)[0];
-      job = queue.splice(0, 1)[0];
+    while (queue.length > 0) {
+      client = clients.shift();
+      clients.push(client);
+      job = queue.shift();
       (function(client, job) {
         process.nextTick(function() {
           client(job, function(err) {
@@ -25,7 +26,9 @@ function notify(type) {
 function push(type, jobData, callback) {
   if (! queues[type]) { queues[type] = []; }
   queues[type].push(jobData);
-  notify(type);
+  process.nextTick(function() {
+    notify(type);
+  });
   if (callback) {
     process.nextTick(callback);
   }
@@ -34,7 +37,9 @@ function push(type, jobData, callback) {
 function pop(type, callback) {
   if (! waiting[type]) { waiting[type] = []; }
   waiting[type].push(callback);
-  notify(type);
+  process.nextTick(function() {
+    notify(type);
+  });
 }
 
 module.exports = function() {
