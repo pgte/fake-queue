@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/pgte/fake-queue.png)](http://travis-ci.org/pgte/fake-queue)
 # fake-queue
 
 In-memory queue for Node.js.
